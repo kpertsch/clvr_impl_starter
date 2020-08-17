@@ -28,8 +28,8 @@ class VertPosReward(Reward):
 
 
 class HorPosReward(Reward):
-    """Returns reward proportional to the vertical position of the first object."""
-    NAME = 'vertical_position'
+    """Returns reward proportional to the horizontal position of the first object."""
+    NAME = 'horizontal_position'
 
     def __call__(self, trajectories, shapes):
         return trajectories[:, 0, 0]
