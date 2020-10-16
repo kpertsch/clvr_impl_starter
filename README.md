@@ -1,6 +1,4 @@
-# Reward Induced Representations - Starter Code
-
-We learn transferrable representations from a large dataset of reward-annotated environment interactions.
+# CLVR Implementation Project - Starter Code
 
 
 ## Requirements
