@@ -10,19 +10,26 @@
 
 Create a virtual environment and install all required packages.
 ```
-cd clvr_RewIR_starter
+git clone git@github.com:kpertsch/clvr_impl_starter.git
+cd clvr_impl_starter
 pip3 install virtualenv
 virtualenv -p $(which python3) ./venv
 source ./venv/bin/activate
 
 # Install dependencies
 pip3 install -r requirements.txt
+
+# Install PyTorch
+pip3 install torch torchvision
 ```
+
+Make sure you have appropriate `torch` version (see [PyTorch website](https://pytorch.org/get-started/locally/)).
+
 
 ## Sprites Dataset
 
 We provide a dataset that generates sequences of multiple geometric objects that bounce in a 2D frame _on the fly_. An example PyTorch
-dataset can be found at the top of [`sprites_datagen/moving_sprites.py`](sprites_datagen/moving_sprites.py). You can wrap it 
+dataset can be found at the top of [`sprites_datagen/moving_sprites.py`](sprites_datagen/moving_sprites.py). You can wrap it
 in a PyTorch [Dataloader](https://pytorch.org/tutorials/beginner/data_loading_tutorial.html#iterating-through-the-dataset)
 to allow for efficient data "loading" when training your model.
 
@@ -34,14 +41,16 @@ and you can define more if you want.
 
 ## Sprites Environment
 
-Renders trajectories the same way as the dataset, but allows to control the movement of the agent by passing in a 2D array of 
-x,y-velocities. Implements the standard `gym` interface. We provide image and state-based versions of the environment.
-All environments are registered via [`sprites_env/__init__.py`](sprites_env/__init__.py), including image and state-based
+Renders trajectories the same way as the dataset, but allows to control the movement of the agent by passing in a 2D array of
+x,y-velocities. Implements the standard `gym` interface. We provide image- and state-based versions of the environment.
+All environments are registered via [`sprites_env/__init__.py`](sprites_env/__init__.py), including image- and state-based
 environment with different number of distractors.
 
 You can create an instance of a particular environment by running:
 ```
+# In clvr_impl_starter directory
 import gym
+import sprites_env
 env = gym.make('Sprites-v1')
 ```
 This will create an image-based environment with one distractor. Change the name to get different environments.

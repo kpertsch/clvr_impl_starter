@@ -1,3 +1,13 @@
+# Python virtual environment
 venv
+.python-version
+
+# Python cache files
 __pycache__
+
+# IDE
 .idea
+.vscode
+
+# Mac OS
+.DS_Store
